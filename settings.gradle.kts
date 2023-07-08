@@ -8,3 +8,4 @@ pluginManagement {
         kotlin("jvm") version kotlinVersion apply false
     }
 }
+include("m2l2")
