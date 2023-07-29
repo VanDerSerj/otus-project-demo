@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.mrosystem.mappers.v1.exceptions
+package ru.otus.otuskotlin.mrosystem.mappers.exceptions
 
 import ru.otus.otuskotlin.mrosystem.common.models.MrosCommand
 

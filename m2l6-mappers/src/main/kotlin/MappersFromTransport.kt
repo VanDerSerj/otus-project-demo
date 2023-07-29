@@ -1,10 +1,10 @@
-package ru.otus.otuskotlin.mrosystem.mappers.v1
+package ru.otus.otuskotlin.mrosystem.mappers
 
-import ru.otus.api.v1.models.*
+import ru.otus.api.models.*
 import ru.otus.otuskotlin.mrosystem.common.MrosContext
 import ru.otus.otuskotlin.mrosystem.common.models.*
 import ru.otus.otuskotlin.mrosystem.common.stubs.MrosStubs
-import ru.otus.otuskotlin.mrosystem.mappers.v1.exceptions.UnknownRequestClass
+import ru.otus.otuskotlin.mrosystem.mappers.exceptions.UnknownRequestClass
 
 fun MrosContext.fromTransport(request: IRequest) = when (request) {
     is TaskCreateRequest -> fromTransport(request)

@@ -4,7 +4,7 @@ plugins {
     kotlin("jvm")
 }
 
-allprojects{
+allprojects {
     group = "ru.otus"
     version = "1.0-SNAPSHOT"
 
@@ -13,9 +13,13 @@ allprojects{
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
     }
+}
+    //tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    //    kotlinOptions.jvmTarget = "17"
+    //}
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+subprojects {
+    tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
     }
-
 }

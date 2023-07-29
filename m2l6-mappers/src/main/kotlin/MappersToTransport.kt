@@ -1,9 +1,9 @@
-package ru.otus.otuskotlin.mrosystem.mappers.v1
+package ru.otus.otuskotlin.mrosystem.mappers
 
-import ru.otus.api.v1.models.*
+import ru.otus.api.models.*
 import ru.otus.otuskotlin.mrosystem.common.MrosContext
 import ru.otus.otuskotlin.mrosystem.common.models.*
-import ru.otus.otuskotlin.mrosystem.mappers.v1.exceptions.UnknownMrosCommand
+import ru.otus.otuskotlin.mrosystem.mappers.exceptions.UnknownMrosCommand
 
 fun MrosContext.toTransportTask(): IResponse = when (val cmd = command) {
     MrosCommand.CREATE -> toTransportCreate()

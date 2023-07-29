@@ -1,7 +1,7 @@
 
 
-import ru.otus.api.v1.models.*
-import ru.otus.otuskotlin.mrosystem.api.v1.apiV1Mapper
+import ru.otus.api.models.*
+import ru.otus.otuskotlin.mrosystem.api.apiMapper
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
@@ -23,7 +23,7 @@ class RequestSerializationTest {
 
     @Test
     fun serialize() {
-        val json = apiV1Mapper.writeValueAsString(request)
+        val json = apiMapper.writeValueAsString(request)
 
         assertContains(json, Regex("\"title\":\\s*\"task title\""))
         assertContains(json, Regex("\"mode\":\\s*\"stub\""))
@@ -33,8 +33,8 @@ class RequestSerializationTest {
 
     @Test
     fun deserialize() {
-        val json = apiV1Mapper.writeValueAsString(request)
-        val obj = apiV1Mapper.readValue(json, IRequest::class.java) as TaskCreateRequest
+        val json = apiMapper.writeValueAsString(request)
+        val obj = apiMapper.readValue(json, IRequest::class.java) as TaskCreateRequest
 
         assertEquals(request, obj)
     }
@@ -44,7 +44,7 @@ class RequestSerializationTest {
         val jsonString = """
             {"requestId": "123"}
         """.trimIndent()
-        val obj = apiV1Mapper.readValue(jsonString, TaskCreateRequest::class.java)
+        val obj = apiMapper.readValue(jsonString, TaskCreateRequest::class.java)
 
         assertEquals("123", obj.requestId)
     }
