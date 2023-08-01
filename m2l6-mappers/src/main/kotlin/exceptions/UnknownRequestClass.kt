@@ -1,3 +1,3 @@
-package ru.otus.otuskotlin.mrosystem.mappers.v1.exceptions
+package ru.otus.otuskotlin.mrosystem.mappers.exceptions
 
 class UnknownRequestClass(clazz: Class<*>) : RuntimeException("Class $clazz cannot be mapped to MrosContext")
