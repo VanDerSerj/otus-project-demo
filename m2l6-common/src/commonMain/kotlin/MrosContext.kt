@@ -8,6 +8,7 @@ data class MrosContext(
     var command: MrosCommand = MrosCommand.NONE,
     var state: MrosState = MrosState.NONE,
     val errors: MutableList<MrosError> = mutableListOf(),
+    var settings: MrosCorSettings = MrosCorSettings.NONE,
 
     var workMode: MrosWorkMode = MrosWorkMode.PROD,
     var stubCase: MrosStubs = MrosStubs.NONE,
@@ -16,6 +17,13 @@ data class MrosContext(
     var timeStart: Instant = Instant.NONE,
     var taskRequest: MrosTask = MrosTask(),
     var taskFilterRequest: MrosTaskFilter = MrosTaskFilter(),
+
+    var taskValidating: MrosTask = MrosTask(),
+    var taskFilterValidating: MrosTaskFilter = MrosTaskFilter(),
+
+    var taskValidated: MrosTask = MrosTask(),
+    var taskFilterValidated: MrosTaskFilter = MrosTaskFilter(),
+
     var taskResponse: MrosTask = MrosTask(),
     var tasksResponse: MutableList<MrosTask> = mutableListOf(),
 )
