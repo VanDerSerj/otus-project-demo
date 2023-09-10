@@ -4,4 +4,5 @@ enum class MrosState {
     NONE,
     RUNNING,
     FAILING,
+    FINISHING,
 }

@@ -20,6 +20,7 @@ kotlin {
 
                 implementation(project(":m2l6-common"))
                 implementation(project(":m3l1-stubs"))
+                implementation(project(":m4l2-lib-cor"))
             }
         }
         @Suppress("UNUSED_VARIABLE")
