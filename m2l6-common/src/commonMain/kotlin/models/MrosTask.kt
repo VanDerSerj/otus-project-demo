@@ -16,6 +16,7 @@ data class MrosTask(
     var views: Int = 0,
     var timePublished: Instant = Instant.NONE,
     var timeUpdated: Instant = Instant.NONE,
+    var lock: MrosTaskLock = MrosTaskLock.NONE,
     val permissionsClient: MutableSet<MrosTaskPermissionClient> = mutableSetOf()
 ) {
     fun deepCopy(): MrosTask = copy(

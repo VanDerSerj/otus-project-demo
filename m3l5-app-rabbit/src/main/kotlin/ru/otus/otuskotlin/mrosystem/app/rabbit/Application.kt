@@ -10,7 +10,7 @@ fun main() {
     val config = RabbitConfig()
     val taskProcessor = MrosTaskProcessor()
 
-    val producerConfigV1 = RabbitExchangeConfiguration(
+    val producerConfig = RabbitExchangeConfiguration(
         keyIn = "in",
         keyOut = "out",
         exchange = "transport-exchange",
@@ -23,7 +23,7 @@ fun main() {
     val processor by lazy {
         RabbitDirectProcessor(
             config = config,
-            processorConfig = producerConfigV1,
+            processorConfig = producerConfig,
             processor = taskProcessor
         )
     }

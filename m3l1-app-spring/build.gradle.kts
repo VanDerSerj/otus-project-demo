@@ -1,17 +1,16 @@
 plugins {
-    id("org.springframework.boot") version  "3.0.6"
-    id("io.spring.dependency-management") version "1.1.0"
-    kotlin("jvm") //version "1.8.21"
-    kotlin("plugin.spring") version "1.8.21"
+    //id("org.springframework.boot") version  "3.0.6"
+    //id("io.spring.dependency-management") version "1.1.0"
+    //kotlin("jvm")
+    //kotlin("plugin.spring") version "1.8.21"
+    //kotlin("plugin.serialization")
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    kotlin("jvm")
+    kotlin("plugin.spring")
     kotlin("plugin.serialization")
+    id("com.bmuschko.docker-spring-boot-application")
 }
-
-/*
-repositories {
-    mavenCentral()
-}
-
- */
 
 dependencies {
     val kotestVersion: String by project
@@ -32,8 +31,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
+    implementation(project(":m4l1-app-common"))
+
     // transport models
     implementation(project(":m2l6-common"))
+    //implementation(project(":m5l1-repo-in-memory"))
 
     // api
     implementation(project(":m2l5-api-jackson"))
@@ -41,6 +43,11 @@ dependencies {
 
     // biz
     implementation(project(":m3l1-biz"))
+
+    // Repo
+    implementation(project(":m5l1-repo-stubs"))
+    implementation(project(":m5l1-repo-in-memory"))
+    implementation(project(":m5l3-repo-postgresql"))
 
     // tests
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -60,4 +67,13 @@ tasks {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+docker {
+    springBootApplication {
+        baseImage.set("openjdk:17")
+        ports.set(listOf(8080))
+        images.set(setOf("${project.name}:latest"))
+        jvmArgs.set(listOf("-XX:+UseContainerSupport"))
+    }
 }

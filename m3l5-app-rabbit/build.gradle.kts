@@ -18,6 +18,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 
     implementation(project(":m2l6-common"))
+    implementation(project(":m4l1-app-common"))
 
     //api
     implementation(project(":m2l5-api-jackson"))
