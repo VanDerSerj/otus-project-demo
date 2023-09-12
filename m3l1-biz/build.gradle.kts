@@ -29,6 +29,10 @@ kotlin {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
 
+                implementation(project(":m5l1-repo-stubs"))
+                implementation(project(":m5l1-repo-tests"))
+                implementation(project(":m5l1-repo-in-memory"))
+
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
             }
         }

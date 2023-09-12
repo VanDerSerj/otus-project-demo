@@ -2,6 +2,7 @@ package ru.otus.otuskotlin.mrosystem.common
 
 import kotlinx.datetime.Instant
 import ru.otus.otuskotlin.mrosystem.common.models.*
+import ru.otus.otuskotlin.mrosystem.common.repo.ITaskRepository
 import ru.otus.otuskotlin.mrosystem.common.stubs.MrosStubs
 
 data class MrosContext(
@@ -12,6 +13,12 @@ data class MrosContext(
 
     var workMode: MrosWorkMode = MrosWorkMode.PROD,
     var stubCase: MrosStubs = MrosStubs.NONE,
+
+    var taskRepo: ITaskRepository = ITaskRepository.NONE,
+    var taskRepoRead: MrosTask = MrosTask(),
+    var taskRepoPrepare: MrosTask = MrosTask(),
+    var taskRepoDone: MrosTask = MrosTask(),
+    var tasksRepoDone: MutableList<MrosTask> = mutableListOf(),
 
     var requestId: MrosRequestId = MrosRequestId.NONE,
     var timeStart: Instant = Instant.NONE,
